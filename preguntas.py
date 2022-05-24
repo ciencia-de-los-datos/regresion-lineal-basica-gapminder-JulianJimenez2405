@@ -27,10 +27,10 @@ def pregunta_01():
     print(X.shape)
 
     # Transforme `y` a un array de numpy usando reshape
-    y_reshaped = y.reshape(139,1)
+    y_reshaped = y.reshape(len(y),1)
 
     # Trasforme `X` a un array de numpy usando reshape
-    X_reshaped = X.reshape(139,1)
+    X_reshaped = X.reshape(len(X),1)
 
     # Imprima las nuevas dimensiones de `y`
     print(y_reshaped.shape)
@@ -44,8 +44,6 @@ def pregunta_02():
     En este punto se realiza la impresión de algunas estadísticas básicas
     Complete el código presentado a continuación.
     """
-    import numpy as np
-    import pandas as pd
 
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
     df = pd.read_csv('gm_2008_region.csv')
@@ -72,17 +70,14 @@ def pregunta_03():
     Complete el código presentado a continuación.
     """
 
-    import numpy as np
-    import pandas as pd
-
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
     df = pd.read_csv('gm_2008_region.csv')
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df['fertility'].values.reshape(139,1)
+    X_fertility = df['fertility'].values
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df['life'].values.reshape(139,1)
+    y_life = df['life'].values
 
     # Importe LinearRegression
     from sklearn.linear_model import LinearRegression
@@ -112,9 +107,7 @@ def pregunta_04():
     Particionamiento del conjunto de datos usando train_test_split.
     Complete el código presentado a continuación.
     """
-    import numpy as np
-    import pandas as pd
-
+    
     # Importe LinearRegression
     # Importe train_test_split
     # Importe mean_squared_error
@@ -128,10 +121,10 @@ def pregunta_04():
     df = pd.read_csv('gm_2008_region.csv')
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df['fertility'].values.reshape(139,1)
+    X_fertility = df['fertility'].values
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df['life'].values.reshape(139,1)
+    y_life = df['life'].values
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
